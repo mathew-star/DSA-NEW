@@ -1,4 +1,5 @@
-
+#This is the implementation of singlylinked list
+#here we have operation like >push >pop >unshift >shift >delete >Clear duplicates
 class Node:
     def __init__(self, value):
         self.value = value
