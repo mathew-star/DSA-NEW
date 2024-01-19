@@ -1,3 +1,4 @@
+#This is doubly linked list
 class Node:
   def __init__(self,value):
     self.value = value
