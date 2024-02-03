@@ -56,6 +56,7 @@ class SinglyLinkedList:
     def insert(self, index, value):
         if index < 0 or index > self.length:
             raise IndexError
+        
         elementBefore = self.get(index - 1)
         newNode = Node(value)
         newNode.next = elementBefore.next

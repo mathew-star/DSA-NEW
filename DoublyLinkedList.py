@@ -49,8 +49,35 @@ class Doubly:
       shifted.next =None
 
 
+  def insert(self,value,p):
+    c=self.head
+    co=1
+    while c.next and co<p:
+      c=c.next
+      co+=1
+
+    new=Node(value)
+    new.next=c
+    new.prev=c.prev
+    c.prev.next=new
+
+
+
+
+
+
   def display(self):
     c = self.head
     while c:
       print(c.value, end="<-->")
       c = c.next
+
+
+d=Doubly()
+d.push(10)
+d.push(20)
+d.push(30)
+
+
+d.insert(9,2)
+d.display()
