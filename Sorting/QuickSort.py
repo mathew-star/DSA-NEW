@@ -1,8 +1,24 @@
+"""
+Worst Case: O(N2)
+Average Case: θ ( N log (N))
+Best Case: Ω (N log (N))
+
+Advantages of Quick Sort:
+It is a divide-and-conquer algorithm that makes it easier to solve problems.
+It is efficient on large data sets.
+It has a low overhead, as it only requires a small amount of memory to function.
+
+Disadvantages of Quick Sort:
+It has a worst-case time complexity of O(N2), which occurs when the pivot is chosen poorly.
+It is not a good choice for small data sets.
+"""
+
+
 def partition(arr, low, high):
     pivot = arr[low]
-    left = low + 1
+    left = low +1
     right = high
-
+    #starting low as pivot when left > right swap low and right otherwise in high as pivot left and high
     while True:
         while left <= right and arr[left] <= pivot:
             left += 1
@@ -23,6 +39,12 @@ def quicksort(arr, low, high):
         quicksort(arr, low, pi - 1)
         quicksort(arr, pi + 1, high)
 
+# Example usage:
+array = [10, 7, 8, 9, 1, 5]
+N = len(array)
+print(array)
+quicksort(array, 0, N - 1)
+print(array)
 
 ###################################################################
 def sort_list_interval(unsorted_list, start, end):
@@ -64,8 +86,4 @@ res = sort_list(array)
 print(res)
 
 
-# Example usage:
-# array = [10, 7, 8, 9, 1, 5]
-# N = len(array)
-# quicksort(array, 0, N - 1)
-# print(array)
+
