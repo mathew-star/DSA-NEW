@@ -22,27 +22,45 @@ print(nums)
 Program to sort recursively>>>> 
 """
 def recursive_insertion_sort(arr, n):
-    # Base case: If the array has only one element, it is already sorted
+    if n <= 1:
+        return
+    
+    recursive_insertion_sort(arr, n-1)
+
+    c=n-1
+
+    while c > 0 and arr[c] < arr[c - 1]:
+
+        arr[c],arr[c-1]=arr[c-1],arr[c]
+        c -= 1
+
+my_array = [12, 11, 13, 5, 6]
+recursive_insertion_sort(my_array, len(my_array))
+
+print("Sorted array:", my_array)
+
+
+
+def recursive_selection_sort(arr, n):
+    # Base case: If array has only one element, it is already sorted
     if n <= 1:
         return
 
-    # Recursively sort the first n-1 elements
-    recursive_insertion_sort(arr, n-1)
+    # Find the minimum element in the remaining unsorted part
+    min_index = 0
+    for i in range(1, n):
+        if arr[i] < arr[min_index]:
+            min_index = i
 
-    # Insert the last element into its correct position in the sorted part
-    key = arr[n-1]
-    j = n-2
+    # Swap the minimum element with the first element
+    arr[0], arr[min_index] = arr[min_index], arr[0]
 
-    # Move elements greater than key to one position ahead of their current position
-    while j >= 0 and arr[j] > key:
-        arr[j + 1] = arr[j]
-        j -= 1
+    # Recursively sort the remaining n-1 elements
+    recursive_selection_sort(arr[1:], n - 1)
 
-    # Insert the key into its correct position
-    arr[j + 1] = key
 
 # Example usage:
 my_array = [12, 11, 13, 5, 6]
-recursive_insertion_sort(my_array, len(my_array))
+recursive_selection_sort(my_array, len(my_array))
 
 print("Sorted array:", my_array)

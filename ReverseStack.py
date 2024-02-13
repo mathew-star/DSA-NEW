@@ -5,6 +5,15 @@ def insert_at_bottom(item):
         temp = Stack.pop()
         insert_at_bottom(item)
         Stack.append(temp)
+		
+def to_bottom(i):
+	s2=[]
+	while len(Stack)!=0:
+		s2.append(Stack.pop()) 
+	Stack.append(i)
+	while len(s2)!=0:
+		Stack.append(s2.pop())
+		
 
 def reverse_stack():
     aux_stack = []
@@ -12,7 +21,7 @@ def reverse_stack():
     while Stack: 
         aux_stack.append(Stack.pop())
     while len(aux_stack) != 0:
-        insert_at_bottom(aux_stack.pop())
+        to_bottom(aux_stack.pop())
 
 Stack = []
 Stack.append(10)
@@ -28,7 +37,8 @@ reverse_stack()
 print("Reversed Stack:")
 for i in range(len(Stack) - 1, -1, -1):
     print(Stack[i])
-
+	
+print("#################$$$$$$$$$$$$$$$")
 
 #Reverse stack using recursion>>
 # Python program to reverse a

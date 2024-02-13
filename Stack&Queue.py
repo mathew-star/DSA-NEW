@@ -7,9 +7,10 @@ def push(val):
 	n=len(q)
 	q.append(val)
 	for _ in range(n):
-		q.append(q.pop())
+		q.append(q[0])
+		del q[0]
 def pop():
-	return q.pop()
+	return q[0]
 def top():
 	return q[-1]
 print("###########")
@@ -18,6 +19,7 @@ push(20)
 push(30)
 print("###########")
 print(pop())
+print(top())
 
 #Implementation of queue using two stacks>>
 

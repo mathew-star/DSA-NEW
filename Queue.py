@@ -42,7 +42,7 @@ print(list(q.queue)) #display all items in a queue
 print("\nElements dequeued from the queue")
 print(q.get())
 print(q.get())
-print(q.get())
+print(q.get())   
 print("\nEmpty: ", q.empty())
 q.put(1)
 print("\nEmpty: ", q.empty()) 
