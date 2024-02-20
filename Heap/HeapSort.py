@@ -30,3 +30,27 @@ arr=[4,10,3,5,1]
 print(arr)
 heapsort(arr)
 print("Sorted : ",arr)
+
+
+from collections import defaultdict,deque
+class graph:
+    def __init__(self) -> None:
+        self.graph=defaultdict(list)
+    def add(self,v1,v2):
+        self.graph[v1].append(v2)
+    def bfs(self,v):
+        visited = set()
+        q=deque([v])
+        while q:
+            c=q.popleft()
+            if c not in visited:
+                print(c, end=" ")
+                visited.add(c)
+                q.extend(self.graph[c])
+
+g=graph()
+g.add(1,2)
+g.add(1,3)
+g.add(2,3)
+g.add(2,4)
+g.bfs(1)

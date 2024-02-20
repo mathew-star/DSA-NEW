@@ -19,7 +19,7 @@ def dfs(node,key):
         return True
     return dfs(node.left,key) or dfs(node.right,key)
 
-def bfs(root,key):
+def breathFirstSearch(root,key):
     if root is None:
         return False
     q=[]
@@ -89,7 +89,7 @@ Insert(r,40)
 inorder(r)
 
 key=30
-if bfs(r,key):
+if breathFirstSearch(r,key):
     print("")
     print(key,"found")
 else:
